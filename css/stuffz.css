@@ -293,3 +293,56 @@ footer {
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
+
+	.overons-container {
+  background-color: white;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 80%; 
+  border-radius: 10px; /* Voor afgeronde hoeken */
+}
+.inloggen-container {
+  background-color: white;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 40%; 
+  border-radius: 10px; 
+  
+}
+.afbeelding-rechtsboven {
+  float: right; /* Zorgt dat de afbeelding naar rechts schuift */
+  margin: 0 0 10px 10px; /* Voegt ruimte toe rondom de afbeelding */
+  max-width: 300px; /* Houdt de afbeelding op een nette grootte */
+  border-radius: 5px; /* Optioneel: afgeronde hoeken */
+}
+.afbeelding-rechts {
+  float:right;
+  border-radius: 5px; /* Optioneel: afgeronde hoeken */
+}
+.afbeelding-account {
+  float:right;
+  margin: 0 0 10px 10px;
+  height: 300px;
+}
+
+.button {
+  background-color: lightgoldenrodyellow; 
+  color: black;
+  padding: 10px 24px;
+  border-radius: 5px;
+  border: none; 
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+}
+.fa-cog {
+  color: black;
+}
+.account-container {
+  background-color: white;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 60%; 
+  border-radius: 10px; 
+}
+	

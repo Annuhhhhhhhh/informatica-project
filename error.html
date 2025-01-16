@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stuffz</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/stuffz.css">
+
+  <script src="js/allArticles.js"></script>
+  <script src="js/dataDefault.js"></script>
+  <script src="js/stuffz.js"></script>
+</head>
+<body>
+  <header>
+    Stuffz
+    <div class="headerIcon shoppingCartAmount" id="aantalInWinkelwagen">0</div>
+    <div class="headerIcon"><i class="fa fa-shopping-cart" aria-hidden="true" onclick="toggleBasket();"></i></div>
+    <div class="headerIcon">
+      <a href="inloggen.html">
+        <i class="fa fa-sign-in" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="headerIcon"><a href="account.html"><i class="fa fa-user-o" aria-hidden="true"></i></a></div>
+  </header>
+  
+  <div class="basket" id="basket"> 
+    <div id="winkelwagen">
+      <form name="Bestel" action="bestel.html" method="post">
+        <table>
+          <tr><th>&nbsp;</th><th>Artikel </th><th>Aantal</th><th>Prijs per stuk</th><th>Prijs</th><th>&nbsp;</th></tr>
+          <!-- @artikel_lijst@ -->
+          <tr><td colspan="6">&nbsp;</td></tr>
+          <tr><td colspan="4"><b>Totaal</b></td><td align="right">&#8364; @totaalprijs@ </td><td>&nbsp;</td></tr>
+          <tr><td colspan="6"></td></tr><tr><td colspan="6" align="center"><input type="submit" class="btnOrder" value="Naar bestellen"></td></tr>
+        </table>
+      </form>
+    </div>
+  
+  </div>
+  
+  <main>
+    <div class="row">
+      <div class="col-2 col-s-3 nav"><div class="navButtonActive">Home</div></div>
+      <a href="dierenknuffels.html"><div class="col-2 col-s-3 nav"><div class="navButton">Dierenknuffels</div></div></a>
+      <a href="gelegenheden.html"><div class="col-2 col-s-3 nav"><div class="navButton">Gelegenheden</div></div></a>
+      <a href="gepersonaliseerd.html"><div class="col-2 col-s-3 nav"><div class="navButton">Gepersonaliseerd</div></div></a>
+      <a href="zoeken.html"><div class="col-2 col-s-3 nav"><div class="navButton">Zoeken</div></div></a>
+      <a href="overons.html"><div class="col-2 col-s-3 nav"><div class="navButton">Over ons</div></div></a>
+    </div>
+	<body> 
+    <div class="overons-container">
+      <img src="img/error.jpg" class="afbeelding-rechtsboven">
+	<h1>Oepsie!</h1> <br><br><br>
+        Er is helaas iets misgegaan... Klik hieronder om terug te gaan naar home. <br><br><br>
+        <a href="default.html">
+            <button class="button">Terug naar home</button>
+          </a>
+        <br><br><br><br>
+	</main>
+	
+	  <footer class="row footerDark">
+    <div class="col-4 col-s-4"><h1>Service &amp; contact</h1></div>
+    <div class="col-4 col-s-4"><div><h4>Zelf regelen in je account</h4>Volg je bestellingen<br>Retrouneer een artikel</div></div>
+    <div class="col-4 col-s-4"><div><h4>Heb je hulp nodig</h4>Neem contact op met onze klantenservice</div></div>
+  </footer>
+</body>

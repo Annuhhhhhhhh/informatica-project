@@ -21,6 +21,7 @@
           <i class="fa fa-sign-in" aria-hidden="true"></i>
         </a>
       </div>
+      <div class="headerIcon"><a href="account.html"><i class="fa fa-user-o" aria-hidden="true"></i></a></div>
   </header>
   
   <div class="basket" id="basket"> 
@@ -51,19 +52,26 @@
     <div class="inloggen-container">  
         <img src="img/inloggen.jpg" class="afbeelding-rechts" >
 	<h1>Account aanmaken</h1>
-        <form>
-            <label for="gebruikersnaam">Gebruikersnaam</label><br>
-            <input type="text" id="gebruikersnaam" name="gebruikersnaam"><br>
-            <label for="e-mail">E-mailadres:</label><br>
-            <input type="text" id="e-mail" name="e-mail"><br>
-            <label for="Wachtwoord">Wachtwoord:</label><br>
-            <input type="text" id="Wachtwoord" name="Wachtwoord"><br>
-            <label for="Wachtwoord">Opnieuw uw Wachtwoord:</label><br>
-            <input type="text" id="Wachtwoord" name="Wachtwoord"><br>
-          </form>
-          <br>
-          <button type="button" class="button">Account aanmaken</button>
-          <br>
+  <form id="registratieForm">
+    <label for="gebruikersnaam">Gebruikersnaam</label><br>
+    <input type="text" id="gebruikersnaam" name="gebruikersnaam" required><br>
+  
+    <label for="e-mail">E-mailadres:</label><br>
+    <input type="email" id="e-mail" name="e-mail" required><br>
+  
+    <label for="wachtwoord">Wachtwoord:</label><br>
+    <input type="password" id="wachtwoord" name="wachtwoord" required><br>
+  
+    <label for="wachtwoordHerhaal">Opnieuw uw Wachtwoord:</label><br>
+    <input type="password" id="wachtwoordHerhaal" name="wachtwoordHerhaal" required><br>
+    <br>
+    <button type="submit" id="submit" class="button">Account aanmaken</button>
+    <br>
+    
+  </form>
+  <div id="error" style="color: red;"></div>
+  
+          
          
 	</main>
 	
@@ -72,4 +80,39 @@
     <div class="col-4 col-s-4"><div><h4>Zelf regelen in je account</h4>Volg je bestellingen<br>Retourneer een artikel</div></div>
     <div class="col-4 col-s-4"><div><h4>Heb je hulp nodig</h4>Neem contact op met onze klantenservice</div></div>
   </footer>
+  <script>
+    const form = document.getElementById("registratieForm")
+    const name = document.getElementById("gebruikersnaam")
+    const email = document.getElementById("e-mail")
+    const password = document.getElementById("wachtwoord")
+    const password_confirmation = document.getElementById("wachtwoordHerhaal")
+    const submit = document.getElementById("submit")
+
+    submit.onclick = async (e) => {
+      e.preventDefault()
+
+      const credentials = {
+                            name: name.value,
+                            email: email.value,
+                            password: password.value,
+                            password_confirmation: password_confirmation.value
+                          }
+
+      const response = await fetch("http://localhost:8000/api/register", {
+        method: "POST",
+        body: JSON.stringify(credentials),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      })
+
+      const data = await response.json()
+
+      if(data) {
+        localStorage.setItem("token", data.token)
+        alert("Account aangemaakt!")
+      }
+    }
+  </script>
 </body>

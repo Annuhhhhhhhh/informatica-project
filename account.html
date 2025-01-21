@@ -15,10 +15,14 @@
   <header>
     Stuffz
     <div class="headerIcon shoppingCartAmount" id="aantalInWinkelwagen">0</div>
-    <div class="headerIcon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
-    <div class="headerIcon"><a href="inloggen.html"><i class="fa fa-sign-in" aria-hidden="true"></i></a></div>
-    <div class="headerIcon"><a href="account.html"><i class="fa fa-user-o" aria-hidden="true"></i></a></div>
-  
+    <div class="headerIcon"><i class="fa fa-shopping-cart" aria-hidden="true" onclick="toggleBasket();"></i></div>
+    <div class="headerIcon">
+        <a href="inloggen.html">
+          <i class="fa fa-sign-in" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="headerIcon"><a href="account.html"><i class="fa fa-user-o" aria-hidden="true"></i></a></div>
+    
   </header>
   
   <div class="basket" id="basket"> 
@@ -46,23 +50,46 @@
       <a href="overons.html"><div class="col-2 col-s-3 nav"><div class="navButton">Over ons</div></div></a>
     </div>
 	
-    <div class="inloggen-container">  
-        <img src="img/inloggen.jpg" class="afbeelding-rechts" >
-	<h1>Inloggen</h1>
+    <div class="account-container">  
+        <img src="img/account.jpg" class="afbeelding-account" >
+	<h1>Account </h1>
+    <a href="default.html">
+        <button class="button">Uitloggen</button>
+      </a>
+     
+      <h2>Je bestellingen:</h2>
+      <h2>Meld je aan voor de nieuwsbrief:</h2>
+      <form>
+        <input type="email" placeholder="e-mailadres" id="email" name="email"><br>
+        </form><br>
+      <button type="button" class="button">Aanmelden</button>
+      <h2>Accountgegevens:</h2>
         <form>
-            <label for="e-mailadres">E-mail adres</label><br>
-            <input type="email" id="e-mail" name="e-mail" required><br>
-            <label for="Wachtwoord">Wachtwoord:</label><br>
-            <input type="text" id="Wachtwoord" name="Wachtwoord">
-          </form>
+            <label for="email">E-mail:</label><br>
+            <input type="email" id="email" name="email"><br>
+            
+            <label for="voornaam">Voornaam:</label><br>
+            <input type="text" id="voornaam" name="voornaam"><br>
+            
+            <label for="achternaam">Achternaam:</label><br>
+            <input type="text" id="achternaam" name="achternaam"><br>
+            
+            <label for="straatnaam">Straatnaam:</label><br>
+            <input type="text" id="straatnaam" name="straatnaam"><br>
+            
+            <label for="huisnummer">Huisnummer:</label><br>
+            <input type="number" id="huisnummer" name="huisnummer"><br>
+            
+            <label for="toevoeging">Toevoeging:</label><br>
+            <input type="text" id="toevoeging" name="toevoeging"><br>
+            
+            <label for="plaatsnaam">Plaatsnaam:</label><br>
+            <input type="text" id="plaatsnaam" name="plaatsnaam"><br>
+            
           <br>
-          <button type="submit" id="submit" class="button">Inloggen</button>
+          <button type="submit" id="submit" class="button">Opslaan</button>
           <br>
-          Heeft u geen account?
-          <br>
-          <a href="accountaanmaken.html">
-            <button class="button">Account aanmaken</button>
-          </a>
+         
 	</main>
 	
 	  <footer class="row footerDark">
@@ -70,34 +97,5 @@
     <div class="col-4 col-s-4"><div><h4>Zelf regelen in je account</h4>Volg je bestellingen<br>Retourneer een artikel</div></div>
     <div class="col-4 col-s-4"><div><h4>Heb je hulp nodig</h4>Neem contact op met onze klantenservice</div></div>
   </footer>
-  <script>
-    const email = document.getElementById("e-mail")
-    const password = document.getElementById("wachtwoord")
-    const submit = document.getElementById("submit")
-
-    submit.onclick = async (e) => {
-      e.preventDefault()
-
-      const credentials = {
-                            email: email.value,
-                            password: password.value,
-                          }
-
-      const response = await fetch("http://localhost:8000/api/login", {
-        method: "POST",
-        body: JSON.stringify(credentials),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        }
-      })
-
-      const data = await response.json()
-
-      if(data) {
-        localStorage.setItem("token", data.token)
-        alert("Ingelogd!")
-      }
-    }
-  </script>
+  
 </body>
